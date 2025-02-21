@@ -5,13 +5,13 @@ import {HomePage} from "@/pages/HomePage.tsx";
 import { CredentialsPage } from "@/pages/Credentials";
 import { BodyCard } from "@/components/body-card";
 
-export default function PrimaryLayout({children}: { children: React.ReactNode }) {
+export default function PrimaryLayout({}: { children: React.ReactNode }) {
     const constraintsRef = useRef<HTMLDivElement>(null)
     const controls = useAnimation()
     const snapThreshold = 100
     const [currentPage, setCurrentPage] = useState<string>("home")
 
-    const handleDragEnd = (event: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
         const currentX = info.point.x
 
         if (currentX < snapThreshold) {

@@ -1,4 +1,4 @@
-import { Binary, GraduationCap, Handshake, Parentheses, Speech } from "lucide-react";
+import { Binary, Handshake, Parentheses, Speech } from "lucide-react";
 
 const items = [
     {
