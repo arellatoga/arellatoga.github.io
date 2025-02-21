@@ -4,6 +4,7 @@ import {useRef, useState} from "react";
 import {HomePage} from "@/pages/HomePage.tsx";
 import { CredentialsPage } from "@/pages/Credentials";
 import { BodyCard } from "@/components/body-card";
+import { CareerPage } from "@/pages/Career";
 
 export default function PrimaryLayout({}: { children: React.ReactNode }) {
     const constraintsRef = useRef<HTMLDivElement>(null)
@@ -22,10 +23,17 @@ export default function PrimaryLayout({}: { children: React.ReactNode }) {
     }
 
     const handleNavigation = (url: string) => {
-        if (url === "/home") {
-            setCurrentPage("home")
-        } else if (url === "/credentials") {
-            setCurrentPage("credentials")
+        switch (url) {
+            case "/home":
+                return setCurrentPage("home")
+            case "/credentials":
+                return setCurrentPage("credentials")
+            case "/career":
+                return setCurrentPage("career")
+            case "/home":
+                return setCurrentPage("home")
+            default: 
+                return setCurrentPage("home")
         }
     }
 
@@ -36,6 +44,7 @@ export default function PrimaryLayout({}: { children: React.ReactNode }) {
             case "credentials":
                 return <CredentialsPage />
             case "career":
+                return <CareerPage />
             case "contact":
             case "other":
             default:
@@ -50,7 +59,7 @@ export default function PrimaryLayout({}: { children: React.ReactNode }) {
             case "credentials":
                 return <div>Continuous learning</div>
             case "career":
-                return <div>Leaving an impact</div>
+                return <div>I left an impact in the following</div>
             case "contact":
                 return <div>Reach out to Arel</div>
             case "other":

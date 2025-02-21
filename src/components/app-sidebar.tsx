@@ -16,7 +16,7 @@ const items = [
     },
     {
         title: "Career",
-        url: "#",
+        url: "/career",
         icon: Briefcase,
     },
     {
