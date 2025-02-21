@@ -4,7 +4,22 @@ export const HomePage = () => {
             Hi, I'm Arel.
             <br/>
             <br/>
-            I am a backend engineer with years of experience in JavaScript, TypeScript, Java, and
+            I have a strong desire for creating technologies for social good.
+            <br />
+            Technologies that are beneficial to everyone.
+            <br/>
+            Really, technologies that aren't evil.
+            <br/>
+            And aren't known to pull rugs.
+            <br/>
+            Or steal information without consent.
+            <br/>
+            Or exacerbate an existing digital, physical or socio-economic divide.
+            <br/>
+            <br/>
+
+            To this end, I am a programmer. A backend engineer.
+            I have years of experience in JavaScript, TypeScript, Java, and
             Python.
 
             <br/>
@@ -23,18 +38,10 @@ export const HomePage = () => {
 
             <br/>
             <br/>
-            Most importantly, I have a strong desire for creating technologies for social good.
-            <br/>
-            Technologies that are beneficial to everyone.
-            <br/>
-            Really, technologies that aren't evil.
-            <br/>
-            And aren't known to pull rugs.
-            <br/>
-            Or steal information without consent.
-            <br/>
-            Or exacerbate an existing digital, physical or socio-economic divide.
-            <br/>
+
+            As a backend engineer, I also know a bit of frontend. lol
+
+            <br />
             <br/>
             So if you would like to work together,
             feel free to reach out at

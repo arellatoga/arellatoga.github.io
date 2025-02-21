@@ -21,7 +21,7 @@ const items = [
     },
     {
         title: "Contact Info",
-        url: "#",
+        url: "/contact",
         icon: Mailbox,
     }
 ]

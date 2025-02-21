@@ -5,6 +5,7 @@ import {HomePage} from "@/pages/HomePage.tsx";
 import { CredentialsPage } from "@/pages/Credentials";
 import { BodyCard } from "@/components/body-card";
 import { CareerPage } from "@/pages/Career";
+import { ContactPage } from "@/pages/ContactPage";
 
 export default function PrimaryLayout({}: { children: React.ReactNode }) {
     const constraintsRef = useRef<HTMLDivElement>(null)
@@ -30,8 +31,8 @@ export default function PrimaryLayout({}: { children: React.ReactNode }) {
                 return setCurrentPage("credentials")
             case "/career":
                 return setCurrentPage("career")
-            case "/home":
-                return setCurrentPage("home")
+            case "/contact":
+                return setCurrentPage("contact")
             default: 
                 return setCurrentPage("home")
         }
@@ -46,6 +47,7 @@ export default function PrimaryLayout({}: { children: React.ReactNode }) {
             case "career":
                 return <CareerPage />
             case "contact":
+                return <ContactPage />
             case "other":
             default:
                 return <HomePage />;
