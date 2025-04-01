@@ -42,7 +42,7 @@ const items = [
     }, 
 ]
 
-export const CredentialsPage = () => {
+export const EducationContent = () => {
     return (
         <p className="space-y-4">
             {items.map(item => (
@@ -60,3 +60,8 @@ export const CredentialsPage = () => {
         </p>
     );
 };
+
+export default EducationContent;
+
+
+

@@ -93,7 +93,7 @@ const items = [
     }, 
 ]
 
-export const CareerPage = () => {
+const CareerContent = () => {
     return (
         <p className="space-y-4">
             {items.map(item => (
@@ -126,3 +126,5 @@ export const CareerPage = () => {
         </p>
     );
 };
+
+export default CareerContent;
