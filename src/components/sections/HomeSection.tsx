@@ -2,34 +2,46 @@ export function HomeSection() {
   return (
     <div className="space-y-8">
       <div className="space-y-4">
-        <h1 className="text-4xl font-bold text-foreground">Hello, I'm John Doe</h1>
+        <h1 className="text-4xl font-bold text-foreground">Hi, I am Arel</h1>
         <p className="text-xl text-muted-foreground">
-          A passionate Full Stack Developer based in San Francisco, CA
+          A product-driven Backend Engineer who wants to do tech for good.
         </p>
       </div>
 
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">About Me</h2>
+        <h2 className="text-2xl font-semibold text-foreground">Who?</h2>
         <p className="text-foreground leading-relaxed">
-          I'm a software developer with over 5 years of experience building web applications. 
-          I specialize in React, TypeScript, and Node.js, and I'm passionate about creating 
-          clean, efficient, and user-friendly solutions.
+          I have a strong desire for creating technologies for social good.
+          Technologies that are beneficial to everyone.
+          Technologies that aren't evil.
+          And aren't known to pull rugs.
+          Or steal information without consent.
+          Or exacerbate an existing digital, physical or socio-economic divide.
         </p>
         <p className="text-foreground leading-relaxed">
-          When I'm not coding, you can find me hiking in the mountains, reading tech blogs, 
-          or experimenting with new technologies. I believe in continuous learning and 
-          staying up-to-date with the latest industry trends.
+          I have shown this commitment in my previous works, where I worked towards code for financial inclusion.
+          I am hoping to show this further in other domains, too.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          I started programming as a hobby. I wanted to make games, just like any other ordinary school boy out there.
+          Career choices were very limited, however. So I did the next best thing: product-oriented software
+          engineering.
+          I do wish that in the things I code, I am also crafting stories, personal and intimate.
+        </p>
+        <p className="text-foreground leading-relaxed">
+          So, if you would like to reach out, please do so.
+          Let's make something that goes beyond code itself.
         </p>
       </div>
 
       <div className="space-y-4">
-        <h2 className="text-2xl font-semibold text-foreground">Skills</h2>
+        <h2 className="text-2xl font-semibold text-foreground">Skills and Buzzwords</h2>
         <div className="flex flex-wrap gap-2">
-          {["React", "TypeScript", "Node.js", "Python", "PostgreSQL", "AWS", "Docker", "Git"].map(
-            (skill) => (
-              <span
-                key={skill}
-                className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
+          {[ "TypeScript", "Node.js", "Python", "PostgreSQL", "AWS", "GCP", "Git", "Docker", "Backend", "Test-driven development", "Behaviour-driven develpoment", "Street Fighter", "Dota 2" ].map(
+              (skill) => (
+                  <span
+                      key={skill}
+                      className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm font-medium"
               >
                 {skill}
               </span>
@@ -42,27 +54,36 @@ export function HomeSection() {
         <h2 className="text-2xl font-semibold text-foreground">What I Do</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="p-4 border border-border rounded-lg">
-            <h3 className="font-semibold text-foreground mb-2">Frontend Development</h3>
+            <h3 className="font-semibold text-foreground mb-2">Backend Development</h3>
             <p className="text-muted-foreground text-sm">
-              Building responsive and interactive user interfaces with modern frameworks.
+              I make codebases that are easy to follow, easy to modify, and easy to extend.
+              APIs, Architecture, Events, Rules Engines, Data, etc. Backend. Yeah.
             </p>
           </div>
           <div className="p-4 border border-border rounded-lg">
-            <h3 className="font-semibold text-foreground mb-2">Backend Development</h3>
+            <h3 className="font-semibold text-foreground mb-2">Quality Engineering</h3>
             <p className="text-muted-foreground text-sm">
-              Creating robust APIs and server-side applications with scalable architecture.
+              I test my own code. Wow!
+              I prefer using Cucumber but anything works.
             </p>
           </div>
           <div className="p-4 border border-border rounded-lg">
             <h3 className="font-semibold text-foreground mb-2">Database Design</h3>
             <p className="text-muted-foreground text-sm">
-              Designing efficient database schemas and optimizing query performance.
+              Databases are difficult but I do my best.
             </p>
           </div>
           <div className="p-4 border border-border rounded-lg">
             <h3 className="font-semibold text-foreground mb-2">DevOps</h3>
             <p className="text-muted-foreground text-sm">
-              Setting up CI/CD pipelines and managing cloud infrastructure.
+              I don't want to wait for the devops guy to set up the infrastructure for me.
+              I own all the work when possible :)
+            </p>
+          </div>
+          <div className="p-4 border border-border rounded-lg">
+            <h3 className="font-semibold text-foreground mb-2">Prompt Engineering</h3>
+            <p className="text-muted-foreground text-sm">
+              
             </p>
           </div>
         </div>

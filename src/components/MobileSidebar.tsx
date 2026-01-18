@@ -31,7 +31,7 @@ export function MobileSidebar({ activeSection, onSectionChange }: MobileSidebarP
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
-        <h1 className="ml-4 text-lg font-bold text-foreground">John Doe</h1>
+        <h1 className="ml-4 text-lg font-bold text-foreground">Arel Latoga</h1>
       </header>
 
       {/* Mobile Overlay */}
