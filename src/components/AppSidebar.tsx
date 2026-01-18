@@ -16,17 +16,12 @@ const navItems = [
 export function AppSidebar({ activeSection, onSectionChange, mouseY }: AppSidebarProps) {
   return (
     <aside
-      className="fixed left-0 w-64 h-screen bg-background border-r border-border z-50 transition-transform duration-100 ease-out hidden md:flex flex-col"
+      className="fixed left-0 w-64 h-screen bg-background border-r border-border z-50 transition-transform duration-100 ease-out hidden md:flex flex-col justify-center"
       style={{
         transform: `translateY(${mouseY}px)`,
       }}
     >
-      <div className="p-6 border-b border-border">
-        <h2 className="text-xl font-bold text-foreground">John Doe</h2>
-        <p className="text-sm text-muted-foreground">Full Stack Developer</p>
-      </div>
-      
-      <nav className="flex-1 p-4">
+      <nav className="p-4">
         <ul className="space-y-2">
           {navItems.map((item) => (
             <li key={item.id}>
@@ -46,10 +41,6 @@ export function AppSidebar({ activeSection, onSectionChange, mouseY }: AppSideba
           ))}
         </ul>
       </nav>
-      
-      <div className="p-4 border-t border-border">
-        <p className="text-xs text-muted-foreground text-center">© 2024 John Doe</p>
-      </div>
     </aside>
   );
 }

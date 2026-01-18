@@ -11,26 +11,24 @@ const Index = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const sidebarWidth = 256; // 16rem = 256px (md:ml-64)
+      const sidebarWidth = 256;
       
-      // Only track mouse when it's over the main section (right of sidebar)
+      // Only track mouse when it's over the main section
       if (e.clientX < sidebarWidth) {
         return;
       }
       
       const windowHeight = window.innerHeight;
-      const edgeThreshold = 100;
-      const maxOffset = 50;
+      // Nav buttons height: 3 items * ~52px each + spacing ≈ 180px
+      const navHeight = 180;
+      // Max offset so top item stays at top (0) and bottom item stays at bottom
+      const maxOffset = (windowHeight - navHeight) / 2;
       
-      if (e.clientY < edgeThreshold) {
-        const ratio = (edgeThreshold - e.clientY) / edgeThreshold;
-        setMouseY(-ratio * maxOffset);
-      } else if (e.clientY > windowHeight - edgeThreshold) {
-        const ratio = (e.clientY - (windowHeight - edgeThreshold)) / edgeThreshold;
-        setMouseY(ratio * maxOffset);
-      } else {
-        setMouseY(0);
-      }
+      // Linear interpolation: map mouse Y from [0, windowHeight] to [-maxOffset, maxOffset]
+      const ratio = (e.clientY / windowHeight) * 2 - 1; // -1 to 1
+      const offset = ratio * maxOffset;
+      
+      setMouseY(offset);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
