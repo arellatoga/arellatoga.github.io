@@ -11,24 +11,24 @@ const Index = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const windowHeight = window.innerHeight;
-      const sidebarHeight = windowHeight;
+      const sidebarWidth = 256; // 16rem = 256px (md:ml-64)
       
-      // Calculate offset based on mouse position
-      // Only move sidebar when mouse is near top or bottom edges
+      // Only track mouse when it's over the main section (right of sidebar)
+      if (e.clientX < sidebarWidth) {
+        return;
+      }
+      
+      const windowHeight = window.innerHeight;
       const edgeThreshold = 100;
       const maxOffset = 50;
       
       if (e.clientY < edgeThreshold) {
-        // Mouse near top - move sidebar up
         const ratio = (edgeThreshold - e.clientY) / edgeThreshold;
         setMouseY(-ratio * maxOffset);
       } else if (e.clientY > windowHeight - edgeThreshold) {
-        // Mouse near bottom - move sidebar down
         const ratio = (e.clientY - (windowHeight - edgeThreshold)) / edgeThreshold;
         setMouseY(ratio * maxOffset);
       } else {
-        // Mouse in middle - reset position
         setMouseY(0);
       }
     };
