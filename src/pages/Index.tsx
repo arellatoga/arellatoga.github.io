@@ -4,6 +4,7 @@ import { MobileSidebar } from "@/components/MobileSidebar";
 import { HomeSection } from "@/components/sections/HomeSection";
 import { CareerSection } from "@/components/sections/CareerSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { ParticleBackground } from "@/components/ParticleBackground";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -36,8 +37,9 @@ const Index = () => {
       />
 
       {/* Main Content */}
-      <main className="md:ml-64 min-h-screen flex justify-center">
-        <div className="p-6 md:p-12 pt-20 md:pt-12 w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl text-left">
+      <main className="md:ml-64 min-h-screen flex justify-center relative">
+        <ParticleBackground />
+        <div className="p-6 md:p-12 pt-20 md:pt-12 w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl text-left relative z-10">
           {renderSection()}
         </div>
       </main>
