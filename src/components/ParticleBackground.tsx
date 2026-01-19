@@ -40,7 +40,7 @@ export function ParticleBackground() {
       return {
         x: startX,
         y: startY,
-        size: 3 + Math.random() * 4,
+        size: 15 + Math.random() * 20,
         opacity: 0.6 + Math.random() * 0.4,
       };
     };
@@ -65,7 +65,7 @@ export function ParticleBackground() {
 
       particlesRef.current.forEach((particle, index) => {
         // Move at 45 degrees: up and to the right
-        const speed = 1.5;
+        const speed = 0.4;
         particle.x += speed;
         particle.y -= speed;
 
