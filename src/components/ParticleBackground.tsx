@@ -32,11 +32,22 @@ export function ParticleBackground() {
       const canvasWidth = canvas.width;
       const canvasHeight = canvas.height;
       
-      // Start from bottom, random x position (can be offscreen to the left)
-      // Particles travel at 45 degrees up-right, so start position should be
-      // offset to the left based on how far they need to travel
-      const startX = Math.random() * canvasWidth - canvasWidth * 0.5;
-      const startY = canvasHeight + Math.random() * 50; // Start below canvas
+      // Randomly choose to spawn from bottom or left side
+      const spawnFromLeft = Math.random() < 0.5;
+      
+      let startX: number;
+      let startY: number;
+      
+      if (spawnFromLeft) {
+        // Spawn from left side (offscreen)
+        startX = -20 - Math.random() * 50;
+        startY = Math.random() * canvasHeight;
+      } else {
+        // Spawn from bottom (offscreen)
+        // Offset x to the left so particles can reach upper areas
+        startX = Math.random() * canvasWidth - canvasWidth * 0.5;
+        startY = canvasHeight + 20 + Math.random() * 50;
+      }
       
       return {
         x: startX,
