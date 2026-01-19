@@ -4,7 +4,8 @@ interface Particle {
   x: number;
   y: number;
   size: number;
-  opacity: number;
+  flickerPhase: number;
+  flickerSpeed: number;
 }
 
 export function ParticleBackground() {
@@ -41,7 +42,8 @@ export function ParticleBackground() {
         x: startX,
         y: startY,
         size: 15 + Math.random() * 20,
-        opacity: 0.6 + Math.random() * 0.4,
+        flickerPhase: Math.random() * Math.PI * 2,
+        flickerSpeed: 0.02 + Math.random() * 0.03,
       };
     };
 
@@ -65,16 +67,25 @@ export function ParticleBackground() {
 
       particlesRef.current.forEach((particle, index) => {
         // Move at 45 degrees: up and to the right
-        const speed = 0.4;
+        const speed = 0.1;
         particle.x += speed;
         particle.y -= speed;
 
-        // Calculate opacity based on position
-        // Fade away as particle moves into the top 2/3 of the screen
-        let displayOpacity = particle.opacity;
+        // Update flicker phase
+        particle.flickerPhase += particle.flickerSpeed;
+
+        // Calculate flicker opacity (0.25 to 0.75)
+        const flickerOpacity = 0.25 + (Math.sin(particle.flickerPhase) + 1) * 0.25;
+
+        // Calculate fade based on position (independent multiplier)
+        // Fade starts 1/3 from bottom (at fadeStartY)
+        let fadeFactor = 1;
         if (particle.y < fadeStartY) {
-          displayOpacity = particle.opacity * (particle.y / fadeStartY);
+          fadeFactor = particle.y / fadeStartY;
         }
+
+        // Combine: flicker opacity multiplied by fade factor
+        const displayOpacity = flickerOpacity * fadeFactor;
 
         // Reset particle if it goes offscreen (top or right)
         if (particle.y < -50 || particle.x > canvas.width + 50 || displayOpacity <= 0) {
