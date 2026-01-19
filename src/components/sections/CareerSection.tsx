@@ -11,11 +11,28 @@ import { Card, CardContent } from "@/components/ui/card";
 const careerData = [
   {
     id: 1,
-    company: "Tech Corp Inc.",
-    role: "Senior Full Stack Developer",
-    period: "2022 - Present",
-    location: "San Francisco, CA",
-    description: "Leading development of enterprise web applications",
+    company: "Maya Bank, Inc (formerly PayMaya)",
+    role: "Backend Engineer",
+    period: "July 2017 to Dec 2020",
+    location: "Metro Manila, the Philippines",
+    description: (
+        <div>
+          Cash is king, and the peasant revolution has started.
+          <br/>
+          <br/>
+          You wouldn't believe how hard it is to purchase anything in the Philippines.
+          Apple Pay isn't even a thing yet.
+          The entire world continues to evolve but the country remains backwards.
+          <br/>
+          <br/>
+          Through my work, I've (indirectly) helped people integrate into today's highly digital age.
+          I've done a bit of work on the referral systems, something on the API gateways, another thing on its money movement as well...
+          <br/>
+          <br/>
+          So that shopping in Lazada or Shopee (these are like Amazon, but for South-east Asia) was no longer as
+          gatekept.
+        </div>
+    )
   },
   {
     id: 2,
@@ -49,9 +66,9 @@ export function CareerSection() {
       {/* Title Card */}
       <Card className="bg-white border-border shadow-sm relative z-10">
         <CardContent className="p-6 space-y-4">
-          <h1 className="text-4xl font-bold text-foreground">Career</h1>
+          <h1 className="text-4xl font-bold text-foreground">Arel's Career</h1>
           <p className="text-xl text-muted-foreground">
-            My professional journey in software development
+            What I've done through the years
           </p>
         </CardContent>
       </Card>

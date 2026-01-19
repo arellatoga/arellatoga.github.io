@@ -98,7 +98,7 @@ export function HomeSection() {
             <div className="p-4 border border-border rounded-lg">
               <h3 className="font-semibold text-foreground mb-2">Prompt Engineering</h3>
               <p className="text-muted-foreground text-sm">
-                
+                This website has been vibe coded by yours truly.
               </p>
             </div>
           </div>
