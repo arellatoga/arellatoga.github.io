@@ -36,8 +36,8 @@ const Index = () => {
       />
 
       {/* Main Content */}
-      <main className="md:ml-64 min-h-screen">
-        <div className="p-6 md:p-12 pt-20 md:pt-12 max-w-4xl">
+      <main className="md:ml-64 min-h-screen flex justify-center">
+        <div className="p-6 md:p-12 pt-20 md:pt-12 w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl text-left">
           {renderSection()}
         </div>
       </main>
