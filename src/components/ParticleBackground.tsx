@@ -12,6 +12,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
+  const viewportSizeRef = useRef({ width: 0, height: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -21,16 +22,38 @@ export const ParticleBackground = memo(function ParticleBackground() {
     if (!ctx) return;
 
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      // Use viewport size so section/content layout changes (and scrollbars)
+      // don't change the particle system bounds.
+      const newWidth = window.innerWidth;
+      const newHeight = window.innerHeight;
+
+      // Keep particle positions consistent across resizes (including scrollbar show/hide)
+      const prev = viewportSizeRef.current;
+      if (prev.width > 0 && prev.height > 0) {
+        const sx = newWidth / prev.width;
+        const sy = newHeight / prev.height;
+        for (const p of particlesRef.current) {
+          p.x *= sx;
+          p.y *= sy;
+          // Keep relative size consistent when viewport changes (e.g., scrollbar appears/disappears)
+          p.size *= (sx + sy) / 2;
+        }
+      }
+
+      // Render in CSS pixels; scale backing store for crispness
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(newWidth * dpr);
+      canvas.height = Math.floor(newHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      viewportSizeRef.current = { width: newWidth, height: newHeight };
     };
 
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
     const createParticle = (): Particle => {
-      const canvasWidth = canvas.width;
-      const canvasHeight = canvas.height;
+      const { width: canvasWidth, height: canvasHeight } = viewportSizeRef.current;
       
       // Randomly choose to spawn from bottom or left side
       const spawnFromLeft = Math.random() < 0.5;
@@ -58,22 +81,24 @@ export const ParticleBackground = memo(function ParticleBackground() {
       };
     };
 
-    // Initialize particles
-    for (let i = 0; i < 30; i++) {
-      const particle = createParticle();
-      // Distribute initially across the path
-      const progress = Math.random();
-      particle.x += progress * canvas.height;
-      particle.y -= progress * canvas.height;
-      particlesRef.current.push(particle);
+    // Initialize particles once
+    if (particlesRef.current.length === 0) {
+      for (let i = 0; i < 30; i++) {
+        const particle = createParticle();
+        // Distribute initially across the path
+        const progress = Math.random();
+        particle.x += progress * viewportSizeRef.current.height;
+        particle.y -= progress * viewportSizeRef.current.height;
+        particlesRef.current.push(particle);
+      }
     }
 
     const animate = () => {
       if (!canvas || !ctx) return;
       
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const { width: canvasWidth, height: canvasHeight } = viewportSizeRef.current;
+      ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 
-      const canvasHeight = canvas.height;
       const fadeStartY = canvasHeight * (2 / 3); // Fade starts 1/3 from bottom
 
       particlesRef.current.forEach((particle, index) => {
@@ -99,7 +124,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
         const displayOpacity = flickerOpacity * fadeFactor;
 
         // Reset particle if it goes offscreen (top or right)
-        if (particle.y < -50 || particle.x > canvas.width + 50 || displayOpacity <= 0) {
+        if (particle.y < -50 || particle.x > canvasWidth + 50 || displayOpacity <= 0) {
           particlesRef.current[index] = createParticle();
         } else {
           // Draw gray square
@@ -129,7 +154,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
+      className="fixed inset-0 w-screen h-screen pointer-events-none"
       style={{ zIndex: 0 }}
     />
   );
