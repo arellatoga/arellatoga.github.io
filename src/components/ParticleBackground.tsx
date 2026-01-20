@@ -35,8 +35,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
         for (const p of particlesRef.current) {
           p.x *= sx;
           p.y *= sy;
-          // Keep relative size consistent when viewport changes (e.g., scrollbar appears/disappears)
-          p.size *= (sx + sy) / 2;
+          // Don't scale size - keep squares consistent
         }
       }
 
