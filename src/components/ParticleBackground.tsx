@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 
 interface Particle {
   x: number;
@@ -8,7 +8,7 @@ interface Particle {
   flickerSpeed: number;
 }
 
-export function ParticleBackground() {
+export const ParticleBackground = memo(function ParticleBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const particlesRef = useRef<Particle[]>([]);
   const animationRef = useRef<number>();
@@ -133,4 +133,4 @@ export function ParticleBackground() {
       style={{ zIndex: 0 }}
     />
   );
-}
+});
