@@ -24,14 +24,14 @@ export function MobileSidebar({ activeSection, onSectionChange }: MobileSidebarP
   return (
     <>
       {/* Mobile Header */}
-      <header className="fixed top-0 left-0 right-0 h-16 bg-primary border-b border-primary/20 z-50 flex items-center px-4 md:hidden">
+      <header className="fixed top-0 left-0 right-0 h-16 bg-background border-b border-border z-50 flex items-center px-4 md:hidden">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="p-2 rounded-lg hover:bg-white/20 transition-colors text-primary-foreground"
+          className="p-2 rounded-lg hover:bg-muted transition-colors"
         >
           {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
-        <h1 className="ml-4 text-lg font-bold text-primary-foreground">Arel Latoga</h1>
+        <h1 className="ml-4 text-lg font-bold text-foreground">Arel Latoga</h1>
       </header>
 
       {/* Mobile Overlay */}
@@ -45,7 +45,7 @@ export function MobileSidebar({ activeSection, onSectionChange }: MobileSidebarP
       {/* Mobile Sidebar */}
       <aside
         className={cn(
-          "fixed top-16 left-0 w-64 h-[calc(100vh-4rem)] bg-primary border-r border-primary/20 z-50 transition-transform duration-300 ease-in-out md:hidden",
+          "fixed top-16 left-0 w-64 h-[calc(100vh-4rem)] bg-background border-r border-border z-50 transition-transform duration-300 ease-in-out md:hidden",
           isOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
@@ -58,8 +58,8 @@ export function MobileSidebar({ activeSection, onSectionChange }: MobileSidebarP
                   className={cn(
                     "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors",
                     activeSection === item.id
-                      ? "bg-white text-primary"
-                      : "text-primary-foreground hover:bg-white/20"
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-muted"
                   )}
                 >
                   <item.icon className="h-5 w-5" />
