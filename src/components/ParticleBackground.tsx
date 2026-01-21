@@ -127,7 +127,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
           particlesRef.current[index] = createParticle();
         } else {
           // Draw gray square
-          ctx.fillStyle = `rgba(156, 163, 175, ${displayOpacity})`;
+          ctx.fillStyle = `rgba(100, 149, 237, ${displayOpacity})`;
           ctx.fillRect(
             particle.x - particle.size / 2,
             particle.y - particle.size / 2,
