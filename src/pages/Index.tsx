@@ -26,7 +26,7 @@ const Index = () => {
       />
 
       {/* Main Content */}
-      <main className="md:ml-64 min-h-screen flex justify-center relative">
+      <main className="md:ml-64 min-h-screen flex justify-center relative bg-primary">
         <ParticleBackground />
         <div className="p-6 md:p-12 pt-20 md:pt-12 w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl text-left relative z-10">
           <section id="home">
