@@ -14,7 +14,7 @@ const navItems = [
 
 export function AppSidebar({ activeSection, onSectionChange }: AppSidebarProps) {
   return (
-    <aside className="fixed left-0 top-0 w-64 h-screen bg-primary border-r border-primary/20 z-50 hidden md:flex flex-col">
+    <aside className="fixed left-0 top-0 w-64 h-screen bg-background border-r border-border z-50 hidden md:flex flex-col">
       <nav className="p-4">
         <ul className="space-y-2">
           {navItems.map((item) => (
@@ -24,8 +24,8 @@ export function AppSidebar({ activeSection, onSectionChange }: AppSidebarProps) 
                 className={cn(
                   "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors",
                   activeSection === item.id
-                    ? "bg-white text-primary"
-                    : "text-primary-foreground hover:bg-white/20"
+                    ? "bg-primary text-primary-foreground"
+                    : "text-foreground hover:bg-muted"
                 )}
               >
                 <item.icon className="h-5 w-5" />
