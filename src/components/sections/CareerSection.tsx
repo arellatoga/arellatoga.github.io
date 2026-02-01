@@ -7,11 +7,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent } from "@/components/ui/card";
-import { Binary, Speech, Parentheses, Handshake } from "lucide-react";
+import { Binary, Speech, Parentheses, Handshake, Wallet, HandCoins, Cat, Bot } from "lucide-react";
 
 const careerData = [
   {
     id: 1,
+    icon: Wallet,
     company: "Maya Bank, Inc (formerly PayMaya)",
     role: "Backend Engineer",
     period: "July 2017 to Dec 2020",
@@ -37,6 +38,7 @@ const careerData = [
   },
   {
     id: 2,
+    icon: HandCoins,
     company: "Plentina Lending, Inc",
     role: "Senior Backend Engineer",
     period: "Jan 2021 to April 2022",
@@ -55,6 +57,7 @@ const careerData = [
   },
   {
     id: 3,
+    icon: Cat,
     company: "Horangi Cybersecurity (acquired by Bitdefender, Inc)",
     role: "Backend Engineer",
     period: "June 2022 to August 2023",
@@ -75,6 +78,7 @@ const careerData = [
   },
   {
     id: 4,
+    icon: Bot,
     company: "AI First, Inc",
     role: "Backend Engineer and Product Owner",
     period: "June 2024 to January 2025",
@@ -122,9 +126,16 @@ export function CareerSection() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {careerData.map((job) => (
+            {careerData.map((job) => {
+              const IconComponent = job.icon;
+              return (
               <TableRow key={job.id}>
-                <TableCell className="font-medium text-foreground">{job.company}</TableCell>
+                <TableCell className="font-medium text-foreground">
+                  <div className="flex items-center gap-2">
+                    <IconComponent className="h-4 w-4 text-primary" />
+                    {job.company}
+                  </div>
+                </TableCell>
                 <TableCell className="text-foreground">{job.role}</TableCell>
                 <TableCell className="text-muted-foreground">{job.period}</TableCell>
                 <TableCell className="text-muted-foreground hidden md:table-cell">
@@ -134,49 +145,74 @@ export function CareerSection() {
                   {job.description}
                 </TableCell>
               </TableRow>
-            ))}
+              );
+            })}
           </TableBody>
         </Table>
       </Card>
 
       {/* Education Card */}
-      <Card className="bg-white border-border shadow-sm relative z-10">
-        <CardContent className="p-6 space-y-4">
-          <h2 className="text-2xl font-semibold text-foreground">Education</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="border border-border rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Binary className="h-5 w-5 text-primary" />
-                <h3 className="font-semibold text-foreground">Bachelor of Science in Computer Science</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">University of the Philippines, 2013 to 2017</p>
-              <p className="text-xs text-muted-foreground mt-1">For my thesis, I wrote about spiking neural P-systems with neuron division and dissolution</p>
-            </div>
-            <div className="border border-border rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Speech className="h-5 w-5 text-primary" />
-                <h3 className="font-semibold text-foreground">Master of Science in Data Science and Communication</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">University of Liverpool, 2023 to 2024</p>
-              <p className="text-sm text-muted-foreground">Distinction (does this even matter?!)</p>
-              <p className="text-xs text-muted-foreground mt-1">For my dissertation, I wrote about perceptions of Generative AI Art in Reddit</p>
-            </div>
-            <div className="border border-border rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Parentheses className="h-5 w-5 text-primary" />
-                <h3 className="font-semibold text-foreground">Doctor of Philosophy in Computer Science</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">Maybe someday.</p>
-            </div>
-            <div className="border border-border rounded-lg p-4">
-              <div className="flex items-center gap-2 mb-2">
-                <Handshake className="h-5 w-5 text-primary" />
-                <h3 className="font-semibold text-foreground">Master of Business Administration</h3>
-              </div>
-              <p className="text-sm text-muted-foreground">I can only dream further for now.</p>
-            </div>
-          </div>
+      <Card className="bg-white border-border shadow-sm relative z-10 overflow-hidden">
+        <CardContent className="p-6 pb-0">
+          <h2 className="text-2xl font-semibold text-foreground mb-4">Education</h2>
         </CardContent>
+        <Table>
+          <TableHeader>
+            <TableRow className="bg-muted">
+              <TableHead className="font-semibold">Degree</TableHead>
+              <TableHead className="font-semibold">Details</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow>
+              <TableCell className="font-medium text-foreground">
+                <div className="flex items-center gap-2">
+                  <Binary className="h-4 w-4 text-primary" />
+                  Bachelor of Science in Computer Science
+                </div>
+              </TableCell>
+              <TableCell className="text-muted-foreground">
+                <p className="text-sm">University of the Philippines, 2013 to 2017</p>
+                <p className="text-xs">For my thesis, I wrote about spiking neural P-systems with neuron division and dissolution</p>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="font-medium text-foreground">
+                <div className="flex items-center gap-2">
+                  <Speech className="h-4 w-4 text-primary" />
+                  Master of Science in Data Science and Communication
+                </div>
+              </TableCell>
+              <TableCell className="text-muted-foreground">
+                <p className="text-sm">University of Liverpool, 2023 to 2024</p>
+                <p className="text-sm">Distinction (does this even matter?!)</p>
+                <p className="text-xs">For my dissertation, I wrote about perceptions of Generative AI Art in Reddit</p>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="font-medium text-foreground">
+                <div className="flex items-center gap-2">
+                  <Parentheses className="h-4 w-4 text-primary" />
+                  Doctor of Philosophy in Computer Science
+                </div>
+              </TableCell>
+              <TableCell className="text-muted-foreground">
+                <p className="text-sm">Maybe someday.</p>
+              </TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell className="font-medium text-foreground">
+                <div className="flex items-center gap-2">
+                  <Handshake className="h-4 w-4 text-primary" />
+                  Master of Business Administration
+                </div>
+              </TableCell>
+              <TableCell className="text-muted-foreground">
+                <p className="text-sm">I can only dream further for now.</p>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
       </Card>
     </div>
   );
