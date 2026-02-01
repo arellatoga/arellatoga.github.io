@@ -36,27 +36,62 @@ const careerData = [
   },
   {
     id: 2,
-    company: "StartupXYZ",
-    role: "Full Stack Developer",
-    period: "2020 - 2022",
-    location: "Remote",
-    description: "Built and maintained e-commerce platform serving 100k+ users",
+    company: "Plentina Lending, Inc",
+    role: "Senior Backend Engineer",
+    period: "Jan 2021 to April 2022",
+    location: "The Philippines and the United States, Remote",
+    description: (
+        <div>
+            COVID-19 massively affected the Philippine livelihood by cutting off major sources of income.
+            <br />
+            Payday loans became prolific, targetting impoverished communities in vulnerable situations.
+            <br />
+            We fought this by providing humane loans through a mobile app. No exorbitant penalties. No threats of harm.
+            <br />
+            Our users were safe, reassured, and loyal.
+        </div>
+    ),
   },
   {
     id: 3,
-    company: "Digital Agency Co.",
-    role: "Frontend Developer",
-    period: "2018 - 2020",
-    location: "New York, NY",
-    description: "Developed responsive web applications for various clients",
+    company: "Horangi Cybersecurity (acquired by Bitdefender, Inc)",
+    role: "Backend Engineer",
+    period: "June 2022 to August 2023",
+    location: "Singapore, Remote",
+    description: (
+            <div>
+
+                Did you know that most breaches come from misconfigurations? [citation needed]
+                <br />
+                There is merit in protecting your websites. Backend servers. Cloud platforms.
+                <br />
+                Ensuring that your infrastructure is safe gives confidence to users that you know what you're doing.
+                <br />
+                And that you absolutely do not take them for granted.
+
+            </div>
+        ),
   },
   {
     id: 4,
-    company: "WebDev Solutions",
-    role: "Junior Developer",
-    period: "2017 - 2018",
-    location: "Boston, MA",
-    description: "Started career building WordPress sites and learning React",
+    company: "AI First, Inc",
+    role: "Backend Engineer and Product Owner",
+    period: "June 2024 to January 2025",
+    location: "The Philippines, Remote",
+    description: (
+            <div>
+                Following whatever happened to cryptocurrencies, the grifting has since moved to the use of AI.
+                <br />
+                Perhaps it's cost-cutting. All the scalped, stolen, and hoarded RTX 3070s needed to be used somewhere.
+                <br />
+                This is not it. I'm in the business of making use of AI for software that actually makes sense.
+                <br />
+                We use AI to solve real problems. Augment solutions to existing problems.
+                <br />
+                And not invent solutions to problems that don't exist.
+                <br />
+            </div>
+        ),
   },
 ];
 
