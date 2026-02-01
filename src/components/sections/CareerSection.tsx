@@ -7,6 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent } from "@/components/ui/card";
+import { Binary, Speech, Parentheses, Handshake } from "lucide-react";
 
 const careerData = [
   {
@@ -142,10 +143,38 @@ export function CareerSection() {
       <Card className="bg-white border-border shadow-sm relative z-10">
         <CardContent className="p-6 space-y-4">
           <h2 className="text-2xl font-semibold text-foreground">Education</h2>
-          <div className="border border-border rounded-lg p-4">
-            <h3 className="font-semibold text-foreground">B.S. in Computer Science</h3>
-            <p className="text-muted-foreground">University of California, Berkeley</p>
-            <p className="text-sm text-muted-foreground">2013 - 2017</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="border border-border rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Binary className="h-5 w-5 text-primary" />
+                <h3 className="font-semibold text-foreground">Bachelor of Science in Computer Science</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">University of the Philippines, 2013 to 2017</p>
+              <p className="text-xs text-muted-foreground mt-1">For my thesis, I wrote about spiking neural P-systems with neuron division and dissolution</p>
+            </div>
+            <div className="border border-border rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Speech className="h-5 w-5 text-primary" />
+                <h3 className="font-semibold text-foreground">Master of Science in Data Science and Communication</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">University of Liverpool, 2023 to 2024</p>
+              <p className="text-sm text-muted-foreground">Distinction (does this even matter?!)</p>
+              <p className="text-xs text-muted-foreground mt-1">For my dissertation, I wrote about perceptions of Generative AI Art in Reddit</p>
+            </div>
+            <div className="border border-border rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Parentheses className="h-5 w-5 text-primary" />
+                <h3 className="font-semibold text-foreground">Doctor of Philosophy in Computer Science</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">Maybe someday.</p>
+            </div>
+            <div className="border border-border rounded-lg p-4">
+              <div className="flex items-center gap-2 mb-2">
+                <Handshake className="h-5 w-5 text-primary" />
+                <h3 className="font-semibold text-foreground">Master of Business Administration</h3>
+              </div>
+              <p className="text-sm text-muted-foreground">I can only dream further for now.</p>
+            </div>
           </div>
         </CardContent>
       </Card>
