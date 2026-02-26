@@ -30,7 +30,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Email</p>
-                  <p className="text-foreground font-medium">john.doe@example.com</p>
+                  <p className="text-foreground font-medium">arel.latoga@hotmail.com</p>
                 </div>
               </div>
 
@@ -40,7 +40,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Phone</p>
-                  <p className="text-foreground font-medium">+1 (555) 123-4567</p>
+                  <p className="text-foreground font-medium">07824314890</p>
                 </div>
               </div>
 
@@ -50,7 +50,7 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">Location</p>
-                  <p className="text-foreground font-medium">San Francisco, CA</p>
+                  <p className="text-foreground font-medium">London, UK and Manila, PH</p>
                 </div>
               </div>
             </div>
