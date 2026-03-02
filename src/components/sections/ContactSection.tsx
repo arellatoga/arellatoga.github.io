@@ -48,10 +48,10 @@ export function ContactSection() {
           <div className="space-y-3">
             <h3 className="font-semibold text-foreground">Social Links</h3>
             <div className="flex gap-3">
-              <a href="#" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
+              <a href="https://www.linkedin.com/in/arellatoga/" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
                 <Linkedin className="h-5 w-5 text-secondary-foreground" />
               </a>
-              <a href="#" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
+              <a href="https://github.com/arellatoga" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
                 <Github className="h-5 w-5 text-secondary-foreground" />
               </a>
             </div>
