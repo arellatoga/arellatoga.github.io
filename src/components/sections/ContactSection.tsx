@@ -1,4 +1,4 @@
-import { Mail, Phone, MapPin, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, BookOpen } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 export function ContactSection() {
@@ -48,11 +48,14 @@ export function ContactSection() {
           <div className="space-y-3">
             <h3 className="font-semibold text-foreground">Social Links</h3>
             <div className="flex gap-3">
-              <a href="https://www.linkedin.com/in/arellatoga/" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
+              <a href="https://www.linkedin.com/in/arellatoga/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
                 <Linkedin className="h-5 w-5 text-secondary-foreground" />
               </a>
-              <a href="https://github.com/arellatoga" target="_blank" rel="noopener noreferrer" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
+              <a href="https://github.com/arellatoga" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
                 <Github className="h-5 w-5 text-secondary-foreground" />
+              </a>
+              <a href="https://medium.com/@realarel" target="_blank" rel="noopener noreferrer" aria-label="Medium" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
+                <BookOpen className="h-5 w-5 text-secondary-foreground" />
               </a>
             </div>
           </div>

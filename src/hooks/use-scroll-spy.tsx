@@ -29,6 +29,7 @@ export function useScrollSpy(sectionIds: string[], offset: number = 100) {
     if (section) {
       const top = section.offsetTop - offset + 20;
       window.scrollTo({ top, behavior: "smooth" });
+      setActiveSection(sectionId);
     }
   }, [offset]);
 

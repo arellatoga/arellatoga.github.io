@@ -7,7 +7,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Card, CardContent } from "@/components/ui/card";
-import { Binary, Speech, Parentheses, Handshake, Wallet, HandCoins, Cat, Bot } from "lucide-react";
+import { Binary, Speech, Parentheses, Handshake, Wallet, HandCoins, Cat, Bot, Building2 } from "lucide-react";
 
 const careerData = [
   {
@@ -98,6 +98,24 @@ const careerData = [
             </div>
         ),
   },
+  {
+    id: 5,
+    icon: Building2,
+    company: "DoorFeed Inc",
+    role: "Backend Engineer + a bit of DevOps + a bit of AI + a bit of vibe coding",
+    period: "June 2025 - Present",
+    location: "London, UK",
+    description: (
+      <div>
+        I will not pretend I know a lot about real estate, but I do know that a lot of money is involved here.
+        <br />
+        Perhaps a building here needs some valuations, a rental property over there needs comparables, or maybe you
+        want to have a bird's-eye view of a general area.
+        <br />
+        We have it here.
+      </div>
+    ),
+  },
 ];
 
 export function CareerSection() {
@@ -160,6 +178,8 @@ export function CareerSection() {
           <TableHeader>
             <TableRow className="bg-muted">
               <TableHead className="font-semibold">Degree</TableHead>
+              <TableHead className="font-semibold">University</TableHead>
+              <TableHead className="font-semibold">Period</TableHead>
               <TableHead className="font-semibold">Details</TableHead>
             </TableRow>
           </TableHeader>
@@ -171,8 +191,9 @@ export function CareerSection() {
                   Bachelor of Science in Computer Science
                 </div>
               </TableCell>
+              <TableCell className="text-muted-foreground">University of the Philippines</TableCell>
+              <TableCell className="text-muted-foreground">2013 to 2017</TableCell>
               <TableCell className="text-muted-foreground">
-                <p className="text-sm">University of the Philippines, 2013 to 2017</p>
                 <p className="text-xs">For my thesis, I wrote about spiking neural P-systems with neuron division and dissolution</p>
               </TableCell>
             </TableRow>
@@ -183,8 +204,9 @@ export function CareerSection() {
                   Master of Science in Data Science and Communication
                 </div>
               </TableCell>
+              <TableCell className="text-muted-foreground">University of Liverpool</TableCell>
+              <TableCell className="text-muted-foreground">2023 to 2024</TableCell>
               <TableCell className="text-muted-foreground">
-                <p className="text-sm">University of Liverpool, 2023 to 2024</p>
                 <p className="text-sm">Distinction (does this even matter?!)</p>
                 <p className="text-xs">For my dissertation, I wrote about perceptions of Generative AI Art in Reddit</p>
               </TableCell>
@@ -196,6 +218,8 @@ export function CareerSection() {
                   Doctor of Philosophy in Computer Science
                 </div>
               </TableCell>
+              <TableCell />
+              <TableCell />
               <TableCell className="text-muted-foreground">
                 <p className="text-sm">Maybe someday.</p>
               </TableCell>
@@ -207,6 +231,8 @@ export function CareerSection() {
                   Master of Business Administration
                 </div>
               </TableCell>
+              <TableCell />
+              <TableCell />
               <TableCell className="text-muted-foreground">
                 <p className="text-sm">I can only dream further for now.</p>
               </TableCell>

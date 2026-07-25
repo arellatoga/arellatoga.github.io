@@ -37,7 +37,7 @@ const Index = () => {
             <CareerSection />
           </section>
           
-          <section id="contact" className="mt-16 pb-16">
+          <section id="contact" className="mt-16 min-h-[calc(100vh-100px)] pb-16">
             <ContactSection />
           </section>
         </div>
