@@ -119,8 +119,8 @@
   letter-spacing: .13em;
   text-transform: uppercase;
 }
-.sidebar-rule { height: 3px; margin: 2.75rem 0 4.25rem; background: #dce5f2; }
-.sidebar-rule span { display: block; width: 42%; height: 100%; background: var(--blue); }
+.scroll-progress { position: relative; height: 1px; margin: 2.75rem 0 4.25rem; background: #d6dfec; }
+.scroll-progress span { position: absolute; inset: -1px 0 auto; height: 3px; background: var(--blue); transform-origin: left center; transition: transform 90ms linear; }
 .issue-index ol { list-style: none; margin: 1.8rem 0 0; padding: 0; border-top: 1px solid var(--hairline); }
 .issue-index li { border-bottom: 1px solid var(--hairline); }
 .index-link {

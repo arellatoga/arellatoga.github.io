@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { useScrollProgress } from "@/hooks/use-scroll-progress";
 
 interface AppSidebarProps {
   activeSection: string;
@@ -13,6 +14,8 @@ const navItems = [
 ];
 
 export function AppSidebar({ activeSection, onSectionChange }: AppSidebarProps) {
+  const scrollProgress = useScrollProgress();
+
   return (
     <aside className="editorial-sidebar" aria-label="Site index">
       <div className="sidebar-masthead">
@@ -22,7 +25,16 @@ export function AppSidebar({ activeSection, onSectionChange }: AppSidebarProps) 
         <p className="sidebar-kicker">Backend engineer · London</p>
       </div>
 
-      <div className="sidebar-rule" aria-hidden="true"><span /></div>
+      <div
+        className="scroll-progress"
+        role="progressbar"
+        aria-label="Reading progress"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(scrollProgress * 100)}
+      >
+        <span style={{ transform: "scaleX(" + scrollProgress + ")" }} />
+      </div>
 
       <nav className="issue-index" aria-label="In this portfolio">
         <p className="ui-label">In this portfolio</p>
