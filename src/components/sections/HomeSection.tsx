@@ -2,11 +2,12 @@ import { useState } from "react";
 
 const skills = [
   "TypeScript", "Node.js", "Python", "PostgreSQL", "AWS", "GCP", "Git", "Docker",
-  "Microservices", "Monoliths", "Domain-driven design", "Event sourcing", "CQRS",
-  "Behaviour-driven development", "Test-driven development", "Distributed systems",
-  "Kubernetes", "Terraform", "Observability", "Kafka", "RabbitMQ", "REST", "GraphQL",
-  "Serverless", "Clean architecture", "Hexagonal architecture", "Rules engines", "Data pipelines",
-  "LLMs", "Prompt engineering", "Vector databases", "Vibe coding", "Street Fighter", "Dota 2",
+  "Microservices", "Monoliths", "Domain-driven design", "Event sourcing",
+  "Behaviour-driven development", "Test-driven development",
+  "Terraform", "Observability", "RabbitMQ", "REST", "GraphQL",
+  "Serverless", "Clean architecture", "Hexagonal architecture", "Rules engines",
+  "LLMs", "Prompt engineering", "Vibe coding", "Street Fighter", "Dota 2",
+  "Marvel Tōkon: Fighting Souls", "Guilty Gear", "Gunpla", "Airbrushing",
   "Spiking neural P-systems", "Financial inclusion", "Tech for good",
 ];
 
