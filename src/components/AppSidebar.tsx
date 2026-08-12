@@ -1,4 +1,3 @@
-import { Home, Briefcase, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface AppSidebarProps {
@@ -7,34 +6,50 @@ interface AppSidebarProps {
 }
 
 const navItems = [
-  { id: "home", title: "Home", icon: Home },
-  { id: "career", title: "Career", icon: Briefcase },
-  { id: "contact", title: "Contact me", icon: Mail },
+  { id: "home", number: "01", title: "Profile", note: "A short introduction" },
+  { id: "career", number: "02", title: "Career", note: "Work and education" },
+  { id: "blog", number: "03", title: "Blog", note: "Essays and observations" },
+  { id: "contact", number: "04", title: "Contact", note: "Say hello" },
 ];
 
 export function AppSidebar({ activeSection, onSectionChange }: AppSidebarProps) {
   return (
-    <aside className="fixed left-0 top-0 w-64 h-screen bg-background border-r border-border z-50 hidden md:flex flex-col">
-      <nav className="p-4">
-        <ul className="space-y-2">
+    <aside className="editorial-sidebar" aria-label="Site index">
+      <div className="sidebar-masthead">
+        <button className="wordmark" onClick={() => onSectionChange("home")}>
+          Arel Latoga
+        </button>
+        <p className="sidebar-kicker">Backend engineer · London</p>
+      </div>
+
+      <div className="sidebar-rule" aria-hidden="true"><span /></div>
+
+      <nav className="issue-index" aria-label="In this portfolio">
+        <p className="ui-label">In this portfolio</p>
+        <ol>
           {navItems.map((item) => (
             <li key={item.id}>
               <button
                 onClick={() => onSectionChange(item.id)}
-                className={cn(
-                  "w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-colors",
-                  activeSection === item.id
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-muted"
-                )}
+                className={cn("index-link", activeSection === item.id && "is-active")}
+                aria-current={activeSection === item.id ? "location" : undefined}
               >
-                <item.icon className="h-5 w-5" />
-                <span className="font-medium">{item.title}</span>
+                <span className="index-number">{item.number}</span>
+                <span>
+                  <strong>{item.title}</strong>
+                  <small>{item.note}</small>
+                </span>
               </button>
             </li>
           ))}
-        </ul>
+        </ol>
       </nav>
+
+      <div className="sidebar-footer">
+        <p className="ui-label">Currently</p>
+        <p>Building useful systems at DoorFeed.</p>
+        <span>London, United Kingdom</span>
+      </div>
     </aside>
   );
 }

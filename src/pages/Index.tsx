@@ -1,43 +1,43 @@
 import { AppSidebar } from "@/components/AppSidebar";
 import { MobileSidebar } from "@/components/MobileSidebar";
-import { HomeSection } from "@/components/sections/HomeSection";
 import { CareerSection } from "@/components/sections/CareerSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { HomeSection } from "@/components/sections/HomeSection";
+import { BlogSection } from "@/components/sections/BlogSection";
 import { ParticleBackground } from "@/components/ParticleBackground";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
-const sectionIds = ["home", "career", "contact"];
+const sectionIds = ["home", "career", "blog", "contact"];
 
 const Index = () => {
-  const { activeSection, scrollToSection } = useScrollSpy(sectionIds, 120);
+  const { activeSection, scrollToSection } = useScrollSpy(sectionIds, 112);
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Desktop Sidebar */}
+    <div className="site-shell">
+      <a className="skip-link" href="#home">Skip to content</a>
+      <ParticleBackground />
+
       <AppSidebar
         activeSection={activeSection}
         onSectionChange={scrollToSection}
       />
-
-      {/* Mobile Sidebar */}
       <MobileSidebar
         activeSection={activeSection}
         onSectionChange={scrollToSection}
       />
 
-      {/* Main Content */}
-      <main className="md:ml-64 min-h-screen flex justify-center relative">
-        <ParticleBackground />
-        <div className="p-6 md:p-12 pt-20 md:pt-12 w-full max-w-3xl lg:max-w-4xl xl:max-w-5xl text-left relative z-10">
-          <section id="home">
+      <main className="reader-shell">
+        <div className="reader-column">
+          <section id="home" className="reader-section reader-section--first">
             <HomeSection />
           </section>
-          
-          <section id="career" className="mt-16">
+          <section id="career" className="reader-section">
             <CareerSection />
           </section>
-          
-          <section id="contact" className="mt-16 min-h-[calc(100vh-100px)] pb-16">
+          <section id="blog" className="reader-section">
+            <BlogSection />
+          </section>
+          <section id="contact" className="reader-section reader-section--last">
             <ContactSection />
           </section>
         </div>
