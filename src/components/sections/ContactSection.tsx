@@ -1,66 +1,59 @@
-import { Mail, Phone, MapPin, Linkedin, Github, BookOpen } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+
+const links = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/arellatoga/", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/arellatoga", icon: Github },
+  { label: "Medium", href: "https://medium.com/@realarel", icon: ArrowUpRight },
+];
 
 export function ContactSection() {
   return (
-    <div className="space-y-8">
-      <Card className="bg-white border-border shadow-sm relative z-10">
-        <CardContent className="p-6 space-y-6">
-          <div className="space-y-2">
-            <h1 className="text-4xl font-bold text-foreground">Contact Me</h1>
-            <p className="text-xl text-muted-foreground">
-              Let's get in touch! Feel free to reach out for collaborations or just a friendly chat.
-            </p>
-          </div>
+    <article>
+      <header className="contact-opener">
+        <p className="ui-label">The final page</p>
+        <h2>Let’s make something useful.</h2>
+        <p>
+          I’m happy to talk about backend systems, thoughtful product work, responsible AI or an interesting problem
+          that does not fit neatly into a job title.
+        </p>
+      </header>
 
-          <div className="space-y-4">
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-secondary rounded-lg">
-                <Mail className="h-5 w-5 text-secondary-foreground" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Email</p>
-                <p className="text-foreground font-medium">arel.latoga@hotmail.com</p>
-              </div>
-            </div>
+      <a className="email-link" href="mailto:arel.latoga@hotmail.com">
+        <Mail aria-hidden="true" />
+        <span>
+          <small>Email</small>
+          arel.latoga@hotmail.com
+        </span>
+        <ArrowUpRight aria-hidden="true" />
+      </a>
 
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-secondary rounded-lg">
-                <Phone className="h-5 w-5 text-secondary-foreground" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Phone</p>
-                <p className="text-foreground font-medium">07824314890</p>
-              </div>
-            </div>
+      <div className="contact-details">
+        <div>
+          <p className="ui-label">Based between</p>
+          <p>
+            London, United Kingdom<br />
+            Manila, Philippines<br />
+            <a className="telephone-link" href="tel:+447824314890">+44 7824 314890</a>
+          </p>
+        </div>
+        <div>
+          <p className="ui-label">Elsewhere</p>
+          <ul className="social-links">
+            {links.map(({ label, href, icon: Icon }) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <Icon aria-hidden="true" /> {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
 
-            <div className="flex items-center gap-4">
-              <div className="p-3 bg-secondary rounded-lg">
-                <MapPin className="h-5 w-5 text-secondary-foreground" />
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Location</p>
-                <p className="text-foreground font-medium">London, UK and Manila, PH</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <h3 className="font-semibold text-foreground">Social Links</h3>
-            <div className="flex gap-3">
-              <a href="https://www.linkedin.com/in/arellatoga/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
-                <Linkedin className="h-5 w-5 text-secondary-foreground" />
-              </a>
-              <a href="https://github.com/arellatoga" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
-                <Github className="h-5 w-5 text-secondary-foreground" />
-              </a>
-              <a href="https://medium.com/@realarel" target="_blank" rel="noopener noreferrer" aria-label="Medium" className="p-3 bg-secondary rounded-lg hover:bg-muted transition-colors">
-                <BookOpen className="h-5 w-5 text-secondary-foreground" />
-              </a>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
+      <footer className="article-footer">
+        <span>Arel Latoga · Backend Engineer</span>
+        <a href="#home">Back to the beginning ↑</a>
+      </footer>
+    </article>
   );
 }

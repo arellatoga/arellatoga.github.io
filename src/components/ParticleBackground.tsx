@@ -20,6 +20,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     const resizeCanvas = () => {
       // Use viewport size so section/content layout changes (and scrollbars)
@@ -82,7 +83,8 @@ export const ParticleBackground = memo(function ParticleBackground() {
 
     // Initialize particles once
     if (particlesRef.current.length === 0) {
-      for (let i = 0; i < 30; i++) {
+      const particleCount = window.innerWidth < 740 ? 16 : 28;
+      for (let i = 0; i < particleCount; i++) {
         const particle = createParticle();
         // Distribute initially across the path
         const progress = Math.random();
@@ -92,7 +94,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
       }
     }
 
-    const animate = () => {
+    const drawFrame = (shouldMove: boolean) => {
       if (!canvas || !ctx) return;
       
       const { width: canvasWidth, height: canvasHeight } = viewportSizeRef.current;
@@ -102,12 +104,14 @@ export const ParticleBackground = memo(function ParticleBackground() {
 
       particlesRef.current.forEach((particle, index) => {
         // Move at 45 degrees: up and to the right
-        const speed = 0.1;
-        particle.x += speed;
-        particle.y -= speed;
+        const speed = 0.075;
+        if (shouldMove) {
+          particle.x += speed;
+          particle.y -= speed;
+        }
 
         // Update flicker phase
-        particle.flickerPhase += particle.flickerSpeed;
+        if (shouldMove) particle.flickerPhase += particle.flickerSpeed;
 
         // Calculate flicker opacity (0.25 to 0.75)
         const flickerOpacity = 0.25 + (Math.sin(particle.flickerPhase) + 1) * 0.25;
@@ -127,7 +131,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
           particlesRef.current[index] = createParticle();
         } else {
           // Draw gray square
-          ctx.fillStyle = `rgba(100, 149, 237, ${displayOpacity})`;
+          ctx.fillStyle = `rgba(91, 142, 230, ${displayOpacity * 0.68})`;
           ctx.fillRect(
             particle.x - particle.size / 2,
             particle.y - particle.size / 2,
@@ -137,10 +141,18 @@ export const ParticleBackground = memo(function ParticleBackground() {
         }
       });
 
+    };
+
+    const animate = () => {
+      drawFrame(true);
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    animate();
+    if (reduceMotion) {
+      drawFrame(false);
+    } else {
+      animate();
+    }
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
@@ -155,6 +167,7 @@ export const ParticleBackground = memo(function ParticleBackground() {
       ref={canvasRef}
       className="fixed inset-0 w-screen h-screen pointer-events-none"
       style={{ zIndex: 0 }}
+      aria-hidden="true"
     />
   );
 });

@@ -27,11 +27,12 @@ export function useScrollSpy(sectionIds: string[], offset: number = 100) {
   const scrollToSection = useCallback((sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      const top = section.offsetTop - offset + 20;
+      const mobileHeaderOffset = window.matchMedia("(max-width: 740px)").matches ? 64 : 0;
+      const top = section.offsetTop - mobileHeaderOffset;
       window.scrollTo({ top, behavior: "smooth" });
       setActiveSection(sectionId);
     }
-  }, [offset]);
+  }, []);
 
   return { activeSection, scrollToSection };
 }
