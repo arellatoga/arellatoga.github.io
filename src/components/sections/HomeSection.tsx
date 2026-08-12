@@ -4,7 +4,7 @@ const skills = [
   "TypeScript", "Node.js", "Python", "PostgreSQL", "AWS", "GCP", "Git", "Docker",
   "Microservices", "Monoliths", "Domain-driven design", "Event sourcing",
   "Behaviour-driven development", "Test-driven development",
-  "Terraform", "Observability", "RabbitMQ", "REST", "GraphQL",
+  "Terraform", "Observability", "REST", "GraphQL",
   "Serverless", "Clean architecture", "Hexagonal architecture", "Rules engines",
   "LLMs", "Prompt engineering", "Vibe coding", "Street Fighter", "Dota 2",
   "Marvel Tōkon: Fighting Souls", "Guilty Gear", "Gunpla", "Airbrushing",
