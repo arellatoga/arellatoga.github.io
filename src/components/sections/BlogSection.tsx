@@ -27,7 +27,7 @@ export function BlogSection() {
       <header className="section-opener blog-opener">
         <p className="ui-label">Occasional writing</p>
         <h2>Notes from outside the codebase.</h2>
-        <p>Essays about technology, responsibility, life abroad and the inevitable rise of purple yam.</p>
+        <p>Essays about technology, responsibility, life abroad and the inevitable rise of ube.</p>
       </header>
 
       <div className="blog-list">
